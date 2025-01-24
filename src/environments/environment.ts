@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseURL: 'http://192.168.5.13:7107/',
+  baseURL: 'https://deploydemoapi-gfbqgca9dnhedkg8.canadacentral-01.azurewebsites.net/',
 };
