@@ -3,17 +3,19 @@ import { Observable } from 'rxjs';
 import { HttpService, ResponseModel } from 'src/app/httpService/http.service';
 import { Demo } from 'src/app/interface/menu.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss']
 })
-export class DemoComponent implements OnInit{
+export class DemoComponent implements OnInit {
 
-  itemList : Demo[] = [];
+  itemList: Demo[] = [];
+  pdfSrc: string | ArrayBuffer | null = null;
 
-  constructor(private http: HttpService,private snackBar: MatSnackBar){}
+  constructor(private http: HttpService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getDemo().subscribe({
@@ -26,7 +28,7 @@ export class DemoComponent implements OnInit{
     });
   }
 
-  downloadPdf(){
+  downloadPdf() {
     
   }
 
