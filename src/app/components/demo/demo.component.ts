@@ -11,23 +11,23 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class DemoComponent implements OnInit{
 
+  itemList : Demo[] = [];
+
   constructor(private http: HttpService,private snackBar: MatSnackBar){}
 
   ngOnInit(): void {
     this.getDemo().subscribe({
       next: (data) => {
-        this.snackBar.open("Suceess", 'X', {
-          duration: 5000,
-          panelClass: 'success',
-          horizontalPosition: 'right',
-          verticalPosition: 'top',
-        });
-        console.log(data.data);
+        this.itemList = data.data;
       },
       error: (err) => {
         console.error('API Error:', err);
       },
     });
+  }
+
+  downloadPdf(){
+    
   }
 
   getDemo(): Observable<ResponseModel<Demo[]>> {
